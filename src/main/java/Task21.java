@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
@@ -16,15 +17,13 @@ public class Task21 {
     }
 
     public static List<Integer> getLinearCombinations(int size, int[] firstNumbers, int[] secondNumbers) {
-        var indexes = new ArrayList<Integer>();
         int k = firstNumbers[0];
         int c = secondNumbers[0];
-        for (int i = 0; i < size; i++) {
-            if (firstNumbers[i] == k * secondNumbers[i] + c) {
-                indexes.add(i);
-            }
-        }
-        return indexes;
+        return IntStream
+                .range(0, size)
+                .boxed()
+                .filter(i -> firstNumbers[i] == k * secondNumbers[i] + c)
+                .collect(Collectors.toList());
     }
 
 

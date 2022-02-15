@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,7 +10,7 @@ import java.util.List;
  */
 public class Task25 {
 
-    public static final int[] MONTH_DAYS = new int[]{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 314, 334};
+    public static final int[] MONTH_DAYS = new int[]{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
 
     public static void execute(String[] args) {
         int numberInYear = Integer.parseInt(args[1]);
@@ -34,12 +33,12 @@ public class Task25 {
         return -1;
     }
 
-    public static ArrayList<Integer> getDayAndMonthInYear(int day, boolean isLeap) {
+    public static List<Integer> getDayAndMonthInYear(int day, boolean isLeap) {
         int monthNumber = getMonthIndex(day, isLeap) + 1;
         int dayInMonth = day - MONTH_DAYS[monthNumber - 1];
         if (isLeap && monthNumber > 2) {
             dayInMonth--;
         }
-        return new ArrayList<>(List.of(dayInMonth, monthNumber));
+        return List.of(dayInMonth, monthNumber);
     }
 }
