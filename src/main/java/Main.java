@@ -8,6 +8,7 @@ public class Main {
         switch (taskExecute) {
             case "task6" -> Task6.execute(args);
             case "task11" -> Task11.execute(args);
+            case "task16" -> Task16.execute(args);
             default -> {
                 throw new Exception("No specific task argument passed");
             }
